@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Net Salary Calculator (Toy Problem)</title>
+</head>
+<body>
+    <script>
+        let kra = (grossAmount) => {
+            if (grossAmount > 800000){
+                return 0.35 * grossAmount;
+            }
+            else if  (grossAmount <=800000 && grossAmount >500000){
+                return 0.325 * grossAmount;
+            }
+            else if  (grossAmount <=500000 && grossAmount >32333){
+                return 0.30 * grossAmount;
+            }
+            else if  (grossAmount <=32333 && grossAmount >24000){
+                return 0.25 * grossAmount;
+            }
+            else{
+                return 0.10 * grossAmount;
+            }
+           }
+           let nhif = (grossAmount) =>{
+            if (grossAmount >= 100000){
+                return 1700
+            }
+            else if  (grossAmount <=99999 && grossAmount >90000){
+                return 1600
+            }
+            else if  (grossAmount <=89999 && grossAmount >80000){
+                return 1500
+            }
+            else if  (grossAmount <=79999 && grossAmount >70000){
+                return 1400
+            }
+            else if  (grossAmount <=69999 && grossAmount >60000){
+                return 1300
+            }
+            else if  (grossAmount <=59999 && grossAmount >50000){
+                return 1200
+            }
+            else if  (grossAmount <=49999 && grossAmount >45000){
+                return 1100
+            }
+            else if  (grossAmount <=44999 && grossAmount >44000){
+                return 1000
+            }
+            else if  (grossAmount <=39999 && grossAmount >35000){
+                return 950
+            }
+            else if  (grossAmount <=34999 && grossAmount >30000){
+                return 900
+            }
+            else if  (grossAmount <=29999 && grossAmount >25000){
+                return 850
+            }
+            else if  (grossAmount <=24999 && grossAmount >20000){
+                return 750
+            }
+            else if  (grossAmount <=19999 && grossAmount >15000){
+                return 600
+            }
+            else if  (grossAmount <=14999 && grossAmount >12000){
+                return 500
+            }
+            else if  (grossAmount <=11999 && grossAmount >8000){
+                return 400
+            }
+            else if  (grossAmount <=7999 && grossAmount >6000){
+                return 300
+            }
+            else {
+                return 150
+            }
+           } 
+           let nssfTier1= (grossAmount)=> {
+            if (grossAmount <= 7000) {
+                return 0.06 * grossAmount;
+            } else {
+                return 0.06 * 7000; 
+            }
+           }
+           let nssfTier2= (grossAmount)=> {
+            if (grossAmount <= 6000) {
+                return 0.06 * grossAmount;
+            } else if (grossAmount <= 18000) {
+                return 0.06 * (grossAmount - 6000);
+            } else {
+                return 0.06 * 12000;
+            }
+           }
+        function netSalary(salary){
+           let grossAmount = prompt("Enter your gross salary")
+           let ded1= kra(grossAmount)
+           let ded2= nhif(grossAmount)
+           let ded3=nssfTier1(grossAmount)
+           let ded4=nssfTier2(grossAmount)
+           let deductions = ded1 + ded2 + ded3 + ded4
+           salary = grossAmount - deductions
+           alert(`Your net salary after deductions is:${salary} `);
+        }
+        netSalary();
+    </script>
+</body>
+</html>

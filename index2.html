@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speed Detector (Toy Problem)</title>
+</head>
+<body>
+    <script>
+        function speedDetector(speed) {
+            if (isNaN(speed)) {
+                return "Invalid input. Please enter using numbers.";
+            }
+            if (speed <= 70) {
+                return "OK";
+            }
+            
+            let points = 0;
+            for (let i = 75; i <= speed; i += 5) {
+                points++;
+                if (points> 12){
+                return "License suspended"
+            }
+            }
+
+            return points;
+        }
+        let speed = prompt("Enter the speed (>= 0):");
+        let result = speedDetector(speed);
+
+        alert(result); 
+    </script>
+</body>
+</html>
